@@ -1,0 +1,90 @@
+<template name="profile">
+  <div class="container">
+
+    <ol class="breadcrumb">
+      <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+        Home</a>
+      </li>
+      <li class="active"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+        Your Profile
+      </li>
+    </ol>
+
+    <div class="row">
+      <form class="form-horizontal js-save-profile">
+        
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-9">
+            <div class="img-responsive text-center">
+              <img src="{{getAvatar}}" class="avatar-big" id="main-avatar">
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="inputUsername" class="col-sm-2 control-label">Username:</label>
+          <div class="col-sm-9">
+            <p class="form-control-static">{{currentUser.username}}</p>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="inputName" class="col-sm-2 control-label">Alias:</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" id="inputName" 
+              value="{{currentUser.profile.name}}" 
+              placeholder="Alias (optional)" autofocus>
+          </div>
+          
+          <div class="col-sm-5">
+            <div class="checkbox">
+              <label id="username-checkbox-label">
+                {{#if currentUser.profile.useName}}
+                  <input type="checkbox" id="useName" checked> 
+                {{else}}
+                  <input type="checkbox" id="useName">
+                {{/if}}
+                    Use alias instead of username
+              </label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="inputEmail" class="col-sm-2 control-label">Email:</label>
+          <div class="col-sm-9">
+            <input type="email" class="form-control" id="inputEmail" 
+              value="{{currentUser.emails.[0].address}}" 
+              placeholder="Email address (optional)">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="chooseAvatar" class="col-sm-2 control-label">Avatar:</label>
+          <div class="col-sm-9">
+            <div class="row">
+              {{#each avatar in avatars}}
+              	<div class="col-xs-3 col-sm-2">
+                  <div class="thumbnail">
+                    <img src="{{avatar.image}}" class="avatar-profile" 
+                      data-avatar="{{avatar._id}}">
+                  </div>
+                </div>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+        
+        <input type="hidden" id="inputAvatar" value="{{currentUser.profile.avatar}}">
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-9">
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+        
+      </form>        
+    </div>
+
+  </div>
+</template>

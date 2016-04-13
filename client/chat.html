@@ -1,0 +1,62 @@
+<template name="chat_page">
+  <div class="container">
+
+    <ol class="breadcrumb">
+      <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+        Home</a>
+      </li>
+      <li class="active"><span class="glyphicon glyphicon-retweet" aria-hidden="true"></span>
+        Chat
+      </li>
+    </ol>
+
+    <h3>Chatting to: {{ getName otherUser._id }} 
+      <img class="avatar-tiny" src="{{ getAvatar otherUser._id }}">
+    </h3>
+    
+    <div class="row">
+      <div class="col-xs-12">
+        <form class="js-send-chat">
+
+          <div class="form-group">
+            <textarea id="chat" class="form-control" rows="3" required placeholder="Type your message here&hellip;"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <p>
+              Click to add emoticon:
+              {{{ parseEmoticons emoticonList }}}
+            </p>
+          </div>
+
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="Send">
+            <input type="button" class="btn btn-danger" value="Clear messages" id="clear">
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="well well-sm">
+          <ul class="list-unstyled message-list">
+            {{#each messages}} {{> chat_message}} {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</template>
+
+<template name="chat_message">
+  <li>
+    <p>
+      <img class="avatar-tiny" src="{{ getAvatar author }}"> 
+      <em><strong>{{getName author}}</strong> says</em>:
+      {{{parseEmoticons text}}}
+    </p>
+  </li>
+</template>

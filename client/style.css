@@ -1,0 +1,137 @@
+/*--- Navbar styles ---*/
+
+/* Compensate for fixed navbar at top and bottom of page. */
+
+body {
+	padding-top: 70px;
+	padding-bottom: 90px;
+}
+
+/* Logo in navbar header. Values found by trial and error. */
+
+.navbar-image {
+	max-height: 60px;
+	padding: 10px;
+}
+
+
+/*--- Home/Lobby page styles ---*/
+
+/* Avatar div must be fixed size for the Bootstrap thumbnail. */
+
+.user_avatar {
+	width: 150px;
+	height: 150px;
+	max-height: 150px;
+	text-align: center;
+	
+	/* Stop a long user name overflowing the div - doesn't work very well */
+	
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Pop thumbnail on mouse hover. */
+
+.user_avatar:hover {
+	transform: scale(1.1);
+}
+
+.avatar_img {
+	max-height: 100px;
+	max-width: 100px;
+}
+
+
+/*--- Chat page styles ---*/
+
+/* Avatars for messages are about twice normal text height. */
+
+.avatar-tiny {
+	border: 0;
+	padding: 0;
+	max-height: 2em;
+	width: 2em;
+	vertical-align: middle;
+}
+
+/* Alternate message background colours. */
+
+.message-list li:nth-of-type(even) {
+	background: #D0FFD0;
+}
+
+.message-list li:nth-of-type(odd) {
+	background: #FFFFD0;
+}
+
+/* Emoticons are a bit bigger than standard text with space either side. */
+
+.meteoremoticon {
+	margin-left: 0.1em;
+	margin-right: 0.1em;
+	border: 0;
+	padding: 0;
+	height: 1.3em;
+	vertical-align: middle;
+}
+
+/* Style list of emoticons on chat page. */
+
+.emoticon-list-item {
+	display: inline;
+}
+
+.emoticon-list-text {
+	margin-left: 0.6em;
+	margin-right: 0.1em;
+	font-family: "Lucida Console", Monaco, monospace;
+	background-color: #ECF0F1;
+}
+
+.emoticon-list-icon {
+	border: 0;
+}
+
+
+/*--- Profile page styles ---*/
+
+.avatar-big {
+	width: 256px;
+	border: 1px solid grey;
+	border-radius: 10px;
+}
+
+.avatar-profile {
+	width: 50px;
+	transition-duration: 0.4s;
+}
+
+.avatar-profile:hover {
+	transform: scale(1.5);
+}
+
+/* Centre checkbox vertically in row. */
+
+#username-checkbox-label {
+	margin-bottom: 5px;
+}
+
+
+/*--- 404 not found styles ---*/
+
+/* Invalid URL. */
+
+.bad-url {
+	color: red;	
+	font-style: italic;
+}
+
+
+/*--- TEST ONLY ---*/
+/*
+* {
+	border: 1px dotted red;
+}
+*/
+/*end*/
